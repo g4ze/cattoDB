@@ -1,5 +1,5 @@
 # cattoDB
-just a new NOSQL database existing out there purring in the wild.
+just a new NOSQL DBMS existing out there purring in the wild.
 
 so, ive ben thinking of first of all having basic functionalities.
 to begin with i beleive i should start with the commands that dont handle file making or deletion but just file manipulation part; ofcourse since it is a catto we would have things sound similar to it.
