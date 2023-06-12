@@ -13,5 +13,7 @@ Command | Functionality
 -catto-snatchfrom-{id} OR catto-read-{id} | GETs you the id element❌
 -catto-snatch-{object}-from-{id} OR catto-read-{object}-from-{id} | GETs you data of an object with ID❌
 -catto-snatch-all OR catto-get-all | GETs you everything❌
+-catto-paw-{name} OR catto-make-{name} | Makes a new JSON file with "NAME" and "ID"❌
+
 
 
