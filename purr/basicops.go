@@ -2,6 +2,7 @@ package purr
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -19,9 +20,14 @@ func DeleteOne(filepath string) {
 	}
 }
 func ReadOne(filepath string) (a Employee) {
-	file, _ := ioutil.ReadFile(filepath)
 	var datatype Employee
-
-	_ = json.Unmarshal([]byte(file), &datatype)
+	file, err := os.Open(filepath)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer file.Close()
+	// _ = json.NewDecoder(file).Decode(&datatype)
+	byteValue, _ := ioutil.ReadAll(file)
+	json.Unmarshal(byteValue, &datatype)
 	return datatype
 }
