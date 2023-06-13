@@ -2,11 +2,19 @@ package controller
 
 import (
 	"errorhandle"
+	"fmt"
+	"log"
 	"purr"
 )
 
-func controller(command string, filep string) (purr.Employee, error) {
-	if command == "read" { //readingone
+func Controller(commands []string) (purr.Employee, error) {
+	if commands[0] == "read" { //readingone
+		filep := "" + string(commands[1])
+		fmt.Println(filep)
+		if filep == "" {
+			log.Fatal("error")
+		}
+
 		return purr.ReadOne(filep), nil
 		// } else if command == "read-all" { //reading mutiple
 		// 	files, err := ioutil.ReadDir(filep)

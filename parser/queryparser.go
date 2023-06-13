@@ -1,15 +1,23 @@
 package parser
 
-import "errorhandle"
+import (
+	"errorhandle"
+	"fmt"
+	"strings"
+)
 
-func GetCommand(command string) (string, error) {
+func GetCommand(command string) ([]string, error) {
 	//this function will be parsing and breaking down the commands.
 	if command == "" {
-		return "", errorhandle.CustomError{Message: "no command found"}
+		return nil, errorhandle.CustomError{Message: "no command found"}
 	}
 	if command[0:6] != "catto-" {
-		return "", errorhandle.CustomError{Message: "try using \"catto\" command and \"catto-help\" for more"}
+		return nil, errorhandle.CustomError{Message: "try using \"catto\" command and \"catto-help\" for more"}
 	}
 	command = command[6:]
-	return command, nil
+
+	commands := strings.Split(command, "-")
+	var list *[]string = &commands
+	fmt.Println("List of commands is ", *list)
+	return *list, nil
 }

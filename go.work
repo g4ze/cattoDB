@@ -4,6 +4,7 @@ use (
 	.
 	./cattobrain
 	./errorhandle
+	./parser
 
 	./purr
 )
