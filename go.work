@@ -2,6 +2,8 @@ go 1.18
 
 use (
 	.
+	./API/controller
+	./API/router
 	./cattobrain
 	./errorhandle
 	./parser
