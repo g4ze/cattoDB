@@ -13,7 +13,7 @@ func Route() {
 	router.HandleFunc("/catto-read-{id}", controller.ReadOne).Methods("GET")
 	// Creating a new server
 	server := &http.Server{
-		Addr:    ":8000",
+		Addr:    port,
 		Handler: router,
 	}
 
