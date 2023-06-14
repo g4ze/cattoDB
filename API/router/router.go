@@ -4,6 +4,7 @@ import (
 	"controller"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -16,8 +17,13 @@ func Route() {
 
 	// Creating a new server
 	server := &http.Server{
-		Addr:    port,
-		Handler: router,
+		Addr:         "localhost:" + port,
+		ReadTimeout:  3 * time.Second,
+		WriteTimeout: 6 * time.Second,
+
+		IdleTimeout:       15 * time.Second,
+		ReadHeaderTimeout: 3 * time.Second,
+		Handler:           router,
 	}
 
 	// Start the server
