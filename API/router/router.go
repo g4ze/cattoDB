@@ -2,6 +2,7 @@ package router
 
 import (
 	"controller"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -11,6 +12,7 @@ import (
 
 func Route() {
 	router := mux.NewRouter()
+	fmt.Println("Route was hit")
 	router.HandleFunc("/catto-read-{id}", controller.ReadOne).Methods("GET")
 	router.HandleFunc("/catto-read-all", controller.ReadOne).Methods("GET")
 	router.HandleFunc("/catto-read-{ids}", controller.ReadOne).Methods("GET")
