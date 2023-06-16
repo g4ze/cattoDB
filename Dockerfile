@@ -1,11 +1,8 @@
 FROM golang:latest
-ENV GOPATH=/go
 RUN mkdir /app
 ADD . /app
-RUN go install github.com/gorilla/mux@latest
-WORKDIR ~/app
-COPY . .
-RUN go get -d -v ./...
-RUN go install -v ./...
+WORKDIR /app
+RUN go mod download
+RUN go build -o main
 EXPOSE 8080
-CMD ["main":"run"]
+CMD ["/app/main"]
