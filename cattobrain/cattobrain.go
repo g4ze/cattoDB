@@ -6,6 +6,8 @@ import (
 	"log"
 	"parser"
 	"purr"
+
+	"github.com/labstack/echo"
 )
 
 func Meow() {
@@ -22,7 +24,8 @@ func Meow() {
 	}
 	fmt.Print(result)
 }
-func MeowAPI(command string) purr.Employee {
+func MeowAPI(c echo.Context) purr.Employee {
+	command = c.Request().URL.Path
 	commands, err := parser.GetCommand(command)
 	if err != nil {
 		log.Fatal(err)

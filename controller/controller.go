@@ -8,6 +8,9 @@ import (
 )
 
 func Controller(commands []string) (purr.Employee, error) {
+	if commands == nil {
+		log.Fatal("no file specified hit")
+	}
 	if commands[0] == "read" { //readingone
 		filep := "" + string(commands[1])
 		fmt.Println(filep)
