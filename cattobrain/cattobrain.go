@@ -4,14 +4,14 @@ import (
 	"cattodb/controller"
 	"fmt"
 	"log"
+	"net/http"
 	"parser"
-	"purr"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func Meow() {
-	//we will have to input the command
+	// we will have to input the command
 	command := ReadCommand()
 
 	commands, err := parser.GetCommand(command)
@@ -24,8 +24,8 @@ func Meow() {
 	}
 	fmt.Print(result)
 }
-func MeowAPI(c echo.Context) purr.Employee {
-	command = c.Request().URL.Path
+func MeowAPI(c echo.Context) error {
+	command := c.Request().URL.Path
 	commands, err := parser.GetCommand(command)
 	if err != nil {
 		log.Fatal(err)
@@ -35,5 +35,5 @@ func MeowAPI(c echo.Context) purr.Employee {
 		log.Fatal(err)
 	}
 	fmt.Print("returning value")
-	return result
+	return c.JSON(http.StatusOK, result)
 }

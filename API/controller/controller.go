@@ -3,7 +3,7 @@ package controller
 import (
 	"cattobrain"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // func ReadOne(w http.ResponseWriter, r *http.Request) {
@@ -20,4 +20,5 @@ import (
 func ReadOne(context echo.Context) error {
 	command := context.Param("id")
 	result := cattobrain.MeowAPI(command)
+	return result
 }
