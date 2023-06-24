@@ -6,9 +6,8 @@ import (
 	"log"
 	"net/http"
 	"parser"
-	"purr"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func Meow() {
@@ -25,7 +24,7 @@ func Meow() {
 	}
 	fmt.Print(result)
 }
-func MeowAPI(c echo.Context) purr.Employee {
+func MeowAPI(c echo.Context) error {
 	command := c.Request().URL.Path
 	commands, err := parser.GetCommand(command)
 	if err != nil {
