@@ -20,4 +20,5 @@ import (
 func ReadOne(context echo.Context) error {
 	command := context.Param("id")
 	result := cattobrain.MeowAPI(command)
+	return result
 }

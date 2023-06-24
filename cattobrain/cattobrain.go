@@ -4,6 +4,7 @@ import (
 	"cattodb/controller"
 	"fmt"
 	"log"
+	"net/http"
 	"parser"
 	"purr"
 
@@ -11,7 +12,7 @@ import (
 )
 
 func Meow() {
-	//we will have to input the command
+	// we will have to input the command
 	command := ReadCommand()
 
 	commands, err := parser.GetCommand(command)
@@ -25,7 +26,7 @@ func Meow() {
 	fmt.Print(result)
 }
 func MeowAPI(c echo.Context) purr.Employee {
-	command = c.Request().URL.Path
+	command := c.Request().URL.Path
 	commands, err := parser.GetCommand(command)
 	if err != nil {
 		log.Fatal(err)
@@ -35,5 +36,5 @@ func MeowAPI(c echo.Context) purr.Employee {
 		log.Fatal(err)
 	}
 	fmt.Print("returning value")
-	return result
+	return c.JSON(http.StatusOK, result)
 }

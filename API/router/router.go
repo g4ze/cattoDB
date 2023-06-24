@@ -42,7 +42,7 @@ func Route() {
 		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
 	})
 
-	e.GET("/*", cattobrain.MeowAPI())
+	e.GET("/*", cattobrain.MeowAPI(e))
 
 	httpPort := os.Getenv("PORT")
 	if httpPort == "" {
