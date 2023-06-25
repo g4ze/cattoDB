@@ -25,8 +25,9 @@ func Meow() {
 	fmt.Print(result)
 }
 func MeowAPI(c echo.Context) error {
-	command := c.Request().URL.Path
+	command := c.Param("id")
 	commands, err := parser.GetCommand(command)
+	fmt.Println("commands is", commands)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -42,7 +42,7 @@ func Route() {
 		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
 	})
 
-	e.GET("/*", func(c echo.Context) error {
+	e.GET("/:id", func(c echo.Context) error {
 		return cattobrain.MeowAPI(c)
 	})
 
