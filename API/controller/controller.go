@@ -1,11 +1,5 @@
 package controller
 
-import (
-	"cattobrain"
-
-	"github.com/labstack/echo/v4"
-)
-
 // func ReadOne(w http.ResponseWriter, r *http.Request) {
 
 // 	// controller.Controller( []string)
@@ -17,8 +11,8 @@ import (
 // 	response, _ := json.Marshal(result)
 // 	w.Write(response)
 // }
-func ReadOne(context echo.Context) error {
-	command := context.Param("id")
-	result := cattobrain.MeowAPI(command)
-	return result
-}
+// func ReadOne(context echo.Context) error {
+// 	command := context.Param("id")
+// 	result := cattobrain.MeowAPI(command)
+// 	return result
+// }
