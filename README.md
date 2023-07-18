@@ -1,6 +1,8 @@
 # cattoDB
 just a new NOSQL DBMS existing out there purring in the wild.
 
+DBMS that responses to fundamental CRUD commands. Has its own API and CLI. Deployed using kubernetes minikube. Image is available on DockerHub.
+
 so, ive ben thinking of first of all having basic functionalities.
 to begin with i beleive i should start with the commands that dont handle file making or deletion but just file manipulation part; ofcourse since it is a catto we would have things sound similar to it.
 ❌-depicts non-functionality of the command
